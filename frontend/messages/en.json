@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "school": "School",
+    "coaching": "Coaching",
+    "faculty": "Faculty",
+    "results": "Results",
+    "notices": "Notices",
+    "admission": "Admission",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Admissions Open 2025-26",
+    "title": "Shaping Futures with Knowledge",
+    "subtitle": "Excellence in School Education (Std 1-10) and Coaching for IIT JEE, NEET & Foundation",
+    "cta_admission": "Apply for Admission",
+    "cta_call": "Call Us Now"
+  },
+  "stats": {
+    "students": "Students",
+    "selections": "IIT/NEET Selections",
+    "experience": "Years Experience",
+    "faculty": "Expert Faculty"
+  },
+  "programs": {
+    "title": "Our Programs",
+    "subtitle": "Comprehensive education from foundation to competitive excellence",
+    "school": {
+      "title": "School (Std 1-10)",
+      "desc": "CBSE curriculum with experienced teachers and modern facilities"
+    },
+    "jee": {
+      "title": "IIT JEE Coaching",
+      "desc": "Expert coaching for JEE Mains with proven results"
+    },
+    "neet": {
+      "title": "NEET Coaching",
+      "desc": "Comprehensive NEET preparation with biology and science focus"
+    },
+    "foundation": {
+      "title": "Foundation (Std 6-10)",
+      "desc": "Strong foundation building for future competitive exams"
+    }
+  },
+  "admission": {
+    "title": "Apply for Admission",
+    "subtitle": "Fill the form below and we will contact you shortly",
+    "student_name": "Student Name",
+    "parent_name": "Parent Name",
+    "mobile": "Mobile Number",
+    "whatsapp_same": "WhatsApp number is same as mobile",
+    "whatsapp": "WhatsApp Number",
+    "class_interested": "Class / Program Interested",
+    "email": "Email (Optional)",
+    "message": "Any Message",
+    "consent": "I agree to receive updates via SMS and WhatsApp",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "success": "Application submitted! We will contact you soon.",
+    "select_class": "Select Class or Program"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "call_now": "Call Now",
+    "whatsapp_us": "WhatsApp Us"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "made_with": "Made with ❤️ for rural education"
+  },
+  "notices": {
+    "title": "Notices & Announcements",
+    "no_notices": "No notices at the moment"
+  },
+  "results": {
+    "title": "Our Results",
+    "subtitle": "Our students achieve excellence every year"
+  },
+  "faculty": {
+    "title": "Our Faculty",
+    "subtitle": "Experienced and dedicated teachers",
+    "experience": "years experience"
+  }
+}
