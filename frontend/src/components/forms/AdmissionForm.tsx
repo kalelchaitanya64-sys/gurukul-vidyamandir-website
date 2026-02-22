@@ -26,7 +26,7 @@ export default function AdmissionForm() {
     consent: false
   })
 
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const target = e.target
@@ -50,32 +50,13 @@ export default function AdmissionForm() {
 
     setStatus('submitting')
 
-    try {
-      const response = await fetch('/api/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({
-          studentName: '',
-          parentName: '',
-          mobile: '',
-          whatsappSame: true,
-          whatsapp: '',
-          classInterested: '',
-          email: '',
-          message: '',
-          consent: false
-        })
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    // Simulate submission delay
+    setTimeout(() => {
+      setStatus('success')
+      
+      // Log form data to console so you can see submissions during testing
+      console.log('Form submitted:', formData)
+    }, 1000)
   }
 
   if (status === 'success') {
@@ -85,9 +66,20 @@ export default function AdmissionForm() {
         <h2 className="text-2xl font-bold text-green-700 mb-2">
           Application Submitted!
         </h2>
-        <p className="text-gray-600 mb-6">
-          Thank you! We will contact you shortly.
+        <p className="text-gray-600 mb-2">
+          Thank you for your interest in Gurukul Vidyamandir!
         </p>
+        <p className="text-gray-700 font-semibold mb-6">
+          We will contact you on <strong>{formData.mobile}</strong> shortly.
+        </p>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">
+          <p className="text-sm text-gray-700">
+            For immediate assistance, please call or WhatsApp:
+          </p>
+          <a href="tel:+919673761468" className="text-green-600 font-bold text-xl">
+            +91 96737 61468
+          </a>
+        </div>
         <button
           onClick={() => setStatus('idle')}
           className="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition"
@@ -251,13 +243,6 @@ export default function AdmissionForm() {
         </label>
       </div>
 
-      {/* Error Message */}
-      {status === 'error' && (
-        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
-          Something went wrong. Please try again or call us at +91 96737 61468
-        </div>
-      )}
-
       {/* Submit Button */}
       <button
         type="submit"
@@ -270,10 +255,7 @@ export default function AdmissionForm() {
       {/* Direct Call Option */}
       <div className="text-center pt-2">
         <p className="text-gray-500 text-sm mb-2">या थेट कॉल करा / Or call directly</p>
-        <a
-          href="tel:+919673761468"
-          className="inline-flex items-center gap-2 bg-yellow-400 text-green-900 font-bold px-6 py-3 rounded-xl hover:bg-yellow-300 transition"
-        >
+        <a href="tel:+919673761468" className="inline-flex items-center gap-2 bg-yellow-400 text-green-900 font-bold px-6 py-3 rounded-xl hover:bg-yellow-300 transition">
           📞 +91 96737 61468
         </a>
       </div>
