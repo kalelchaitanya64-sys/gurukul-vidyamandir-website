@@ -143,7 +143,14 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Journey / Milestones */}
+      {/* Journey / Milestones - Coming Soon */}
+      <div className="bg-gray-100 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-green-800 mb-4">Our Journey</h2>
+          <p className="text-gray-500 text-lg">🚧 Coming Soon...</p>
+        </div>
+      </div>
+      {/*
       <div className="bg-gray-100 py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-green-800 text-center mb-12">Our Journey</h2>
@@ -169,6 +176,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      */}
 
       {/* CTA Section */}
       <div className="bg-yellow-400 py-16 px-4 text-center">

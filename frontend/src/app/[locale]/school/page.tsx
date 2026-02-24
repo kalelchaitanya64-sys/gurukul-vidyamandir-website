@@ -20,7 +20,7 @@ export default function SchoolPage() {
 
   const timings = [
     { day: 'Monday - Saturday', time: '7:00 AM - 3:00 PM' },
-    { day: 'Foundations', time: '7:00 AM - 2:00 PM' },
+    { day: 'Foundations', time: '7:00 AM - 3:00 PM' },
     { day: 'JEE / NEET Coaching', time: '3:00 PM - 7:30 PM' },
     { day: 'Sunday', time: 'Mock Tests Only' },
   ]
