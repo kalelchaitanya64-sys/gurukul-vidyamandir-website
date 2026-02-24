@@ -118,7 +118,9 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-green-200">
             <li className="flex items-start gap-2">
               <MapPin size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-              <span>Gurukul Vidyamandir, Gokhali, Maharashtra</span>
+              <a href="https://maps.app.goo.gl/kZ6Jr5TytcuzP57b7" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+                Gurukul Vidyamandir, Gokhali, Maharashtra
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-yellow-400 shrink-0" />

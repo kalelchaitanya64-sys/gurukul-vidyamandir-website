@@ -13,10 +13,10 @@ export default function HeroSection() {
     <section className="relative min-h-[90vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-banner.jpg"
+          src="/images/hero-banner.jpeg"
           alt="Gurukul School"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-black/60" />
