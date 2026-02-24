@@ -158,7 +158,7 @@ export default function SchoolPage() {
           <h3 className="text-2xl font-bold text-green-800 mb-2">Visit Us</h3>
           <p className="text-gray-600 mb-2">Gurukul Vidyamandir</p>
           <p className="text-gray-500 mb-6">Gokhali, Maharashtra, India</p>
-          <a href="https://maps.google.com/?q=Gokhali+Maharashtra" target="_blank" rel="noopener noreferrer"
+          <a href="https://maps.app.goo.gl/kZ6Jr5TytcuzP57b7" target="_blank" rel="noopener noreferrer"
             className="inline-block bg-green-700 text-white font-bold px-6 py-3 rounded-xl hover:bg-green-800 transition">
             📍 Open in Google Maps
           </a>

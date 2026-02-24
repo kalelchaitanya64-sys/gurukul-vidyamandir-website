@@ -4,11 +4,11 @@ import { useTranslations } from 'next-intl'
 import { Trophy } from 'lucide-react'
 
 const results = [
-  { name: 'Neel Bhong', exam: 'JEE Mains', score: '99.51 percentile', year: 2026 },
-  { name: 'Siddhi Bosale', exam: 'JEE Mains', score: '99.31 percentil', year: 2026 },
-  { name: 'Vaibhav Shinde', exam: 'JEE Mains', score: '99.04 percentile', year: 2026 },
-  { name: 'Tushar Dagade', exam: 'JEE Mains', score: '98.32 percentil', year: 2026 },
-  { name: 'Dhiraj Dagade', exam: 'JEE Mains', score: '97.68 percentil', year: 2026 },
+  { name: 'Neel Bhong', exam: 'JEE Mains', score: '99.51 % tile', year: 2026 },
+  { name: 'Siddhi Bosale', exam: 'JEE Mains', score: '99.31 % tile', year: 2026 },
+  { name: 'Vaibhav Shinde', exam: 'JEE Mains', score: '99.04 % tile', year: 2026 },
+  { name: 'Tushar Dagade', exam: 'JEE Mains', score: '98.32 % tile', year: 2026 },
+  { name: 'Dhiraj Dagade', exam: 'JEE Mains', score: '97.68 % tile', year: 2026 },
 ]
 
 export default function ResultsHighlight() {
