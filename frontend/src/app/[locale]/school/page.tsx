@@ -19,9 +19,9 @@ export default function SchoolPage() {
   ]
 
   const timings = [
-    { day: 'Monday - Saturday', time: '7:00 AM - 6:00 PM' },
-    { day: 'School (Std 6-10)', time: '7:00 AM - 1:00 PM' },
-    { day: 'JEE / NEET Coaching', time: '2:00 PM - 6:00 PM' },
+    { day: 'Monday - Saturday', time: '7:00 AM - 3:00 PM' },
+    { day: 'Foundations', time: '7:00 AM - 2:00 PM' },
+    { day: 'JEE / NEET Coaching', time: '3:00 PM - 7:30 PM' },
     { day: 'Sunday', time: 'Mock Tests Only' },
   ]
 
@@ -29,7 +29,7 @@ export default function SchoolPage() {
     { name: 'Standard 6', type: 'Foundation', students: '35', desc: 'Building strong basics in Maths & Science' },
     { name: 'Standard 7', type: 'Foundation', students: '35', desc: 'Advancing concepts with activity-based learning' },
     { name: 'Standard 8', type: 'Foundation', students: '35', desc: 'Exam skills and analytical thinking development' },
-    { name: 'Standard 9', type: 'Foundation + Board', students: '30', desc: 'Board preparation with competitive foundation' },
+    { name: 'Standard 9', type: 'Foundation', students: '30', desc: 'Board preparation with competitive foundation' },
     { name: 'Standard 10', type: 'Board Exam', students: '30', desc: 'Intensive SSC board examination preparation' },
     { name: 'JEE Mains & Advanced', type: 'Coaching', students: '30', desc: 'IIT entrance exam preparation (Std 11-12)' },
     { name: 'NEET UG', type: 'Coaching', students: '30', desc: 'Medical entrance exam preparation (Std 11-12)' },

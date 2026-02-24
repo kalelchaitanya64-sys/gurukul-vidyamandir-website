@@ -20,6 +20,16 @@ export const resultsQuery = `*[_type == "result"] | order(year desc) {
   photo
 }`
 
+export const resultBannersQuery = `*[_type == "resultBanner"] | order(year desc) {
+  _id,
+  year,
+  title,
+  "bannerImages": bannerImages[] {
+    "url": asset->url,
+    caption
+  }
+}`
+
 export const noticesQuery = `*[_type == "notice"] | order(date desc) {
   _id,
   title,
