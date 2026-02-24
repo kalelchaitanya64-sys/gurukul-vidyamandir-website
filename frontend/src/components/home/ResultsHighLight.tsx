@@ -9,6 +9,9 @@ const results = [
   { name: 'Vaibhav Shinde', exam: 'JEE Mains', score: '99.04 % tile', year: 2026 },
   { name: 'Tushar Dagade', exam: 'JEE Mains', score: '98.32 % tile', year: 2026 },
   { name: 'Dhiraj Dagade', exam: 'JEE Mains', score: '97.68 % tile', year: 2026 },
+  { name: 'Ruturaj Kabade', exam: 'JEE Mains', score: '97.37 % tile', year: 2026 },
+  { name: 'Shravan Jadhav', exam: 'JEE Mains', score: '96.98 % tile', year: 2026 },
+  { name: 'Samarth Jadhav', exam: 'JEE Mains', score: '95.61 % tile', year: 2026 },
 ]
 
 export default function ResultsHighlight() {

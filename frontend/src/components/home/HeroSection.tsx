@@ -10,13 +10,14 @@ export default function HeroSection() {
   const locale = useLocale()
 
   return (
-    <section className="relative min-h-[90vh] flex items-center">
+    <section className="relative min-h-[60vh] md:min-h-[75vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-banner.jpeg"
           alt="Gurukul School"
           fill
-          className="object-cover object-center"
+          sizes="100vw"
+          className="object-cover object-center scale-105"
           priority
         />
         <div className="absolute inset-0 bg-black/60" />
