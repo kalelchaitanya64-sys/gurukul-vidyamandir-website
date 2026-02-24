@@ -11,7 +11,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Admissions Open 2025-26",
+    "badge": "Admissions Open 2026-27",
     "title": "Shaping Futures with Knowledge",
     "subtitle": "Excellence in School Education (Std 1-10) and Coaching for IIT JEE, NEET & Foundation",
     "cta_admission": "Apply for Admission",
@@ -62,12 +62,22 @@
   },
   "contact": {
     "title": "Contact Us",
+    "heading": "Contact Us",
+    "subheading": "We'd love to hear from you. Reach out anytime!",
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
     "whatsapp": "WhatsApp",
     "call_now": "Call Now",
-    "whatsapp_us": "WhatsApp Us"
+    "call_us": "Call Us",
+    "whatsapp_us": "WhatsApp Us",
+    "timing": "Mon - Sat, 8 AM - 8 PM",
+    "email_reply": "We reply within 24 hours",
+    "follow_us": "Follow Us",
+    "founder": "Our Founder",
+    "ready": "Ready to Join?",
+    "ready_sub": "Take the first step towards a bright future",
+    "apply_now": "Apply Now"
   },
   "footer": {
     "rights": "All rights reserved",

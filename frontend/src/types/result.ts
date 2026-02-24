@@ -1,10 +1,10 @@
 export type Result = {
   _id: string
   studentName: string
-  exam: 'JEE Mains' | 'NEET' | 'Board'
-  rank: number
-  score: number
-  year: number
+  exam: string
+  score: string
+  year: string
+  stream: string
   photo?: {
     asset: {
       _ref: string

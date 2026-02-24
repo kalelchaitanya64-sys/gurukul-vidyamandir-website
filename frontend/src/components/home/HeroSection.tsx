@@ -40,7 +40,7 @@ export default function HeroSection() {
             {t('cta_admission')}
           </Link>
           <a
-            href="tel:+919999999999"
+            href="tel:+919673761468"
             className="flex items-center justify-center gap-2 bg-yellow-400 text-green-900 font-bold px-8 py-4 rounded-xl text-lg hover:bg-yellow-300 transition"
           >
             <Phone size={22} />

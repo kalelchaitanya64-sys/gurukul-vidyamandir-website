@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations, useLocale } from 'next-intl'
+import { useLocale } from 'next-intl'
 import Link from 'next/link'
 import { Award, Users, BookOpen, Heart, Target, Star, CheckCircle } from 'lucide-react'
 

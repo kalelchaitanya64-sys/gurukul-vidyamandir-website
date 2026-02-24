@@ -25,6 +25,8 @@ export default function ResultsPage() {
     client.fetch(resultsQuery).then((data) => {
       setResults(data)
       setLoading(false)
+    }).catch(() => {
+      setLoading(false)
     })
   }, [])
 

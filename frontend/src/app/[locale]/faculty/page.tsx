@@ -27,6 +27,8 @@ export default function FacultyPage() {
     client.fetch(facultyQuery).then((data) => {
       setFaculty(data)
       setLoading(false)
+    }).catch(() => {
+      setLoading(false)
     })
   }, [])
 

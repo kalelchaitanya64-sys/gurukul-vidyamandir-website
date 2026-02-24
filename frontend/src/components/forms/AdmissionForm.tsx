@@ -26,7 +26,7 @@ export default function AdmissionForm() {
     consent: false
   })
 
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const target = e.target
@@ -50,13 +50,23 @@ export default function AdmissionForm() {
 
     setStatus('submitting')
 
-    // Simulate submission delay
-    setTimeout(() => {
-      setStatus('success')
-      
-      // Log form data to console so you can see submissions during testing
-      console.log('Form submitted:', formData)
-    }, 1000)
+    try {
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 3000)
+      }
+    } catch {
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
   }
 
   if (status === 'success') {
@@ -95,7 +105,11 @@ export default function AdmissionForm() {
       onSubmit={handleSubmit}
       className="bg-white rounded-2xl shadow-md p-8 space-y-6"
     >
-      {/* Student Name */}
+      {status === 'error' && (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center text-red-600 font-semibold">
+          Something went wrong. Please try again or call us directly.
+        </div>
+      )}
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1">
           {t('student_name')} <span className="text-red-500">*</span>

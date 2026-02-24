@@ -23,6 +23,8 @@ export default function NoticesPage() {
     client.fetch(noticesQuery).then((data) => {
       setNotices(data)
       setLoading(false)
+    }).catch(() => {
+      setLoading(false)
     })
   }, [])
 

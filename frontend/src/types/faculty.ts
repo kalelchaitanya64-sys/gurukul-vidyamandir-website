@@ -1,13 +1,16 @@
 export type Faculty = {
   _id: string
   name: string
-  subject: string
+  role: string
+  subjects: string[]
   qualification: string
-  experience: number
-  photo: {
+  experience: string
+  specialization: string
+  instagram?: string
+  photo?: {
     asset: {
       _ref: string
     }
   }
-  bio: string
+  bio?: string
 }
