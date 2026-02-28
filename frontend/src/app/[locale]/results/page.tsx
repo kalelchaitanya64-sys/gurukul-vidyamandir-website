@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { client } from '@/lib/sanity'
 import { resultsQuery, resultBannersQuery } from '@/lib/sanityQueries'
 import { Trophy, Star, Award, TrendingUp, ChevronLeft, ChevronRight, X } from 'lucide-react'
@@ -28,6 +28,155 @@ interface ResultBanner {
   title: string
   bannerImages: BannerImage[]
 }
+
+// ─── Banner Slider Component ───────────────────────────────────────────────────
+function BannerSlider({
+  images,
+  onImageClick,
+}: {
+  images: BannerImage[]
+  onImageClick: (index: number) => void
+}) {
+  const [current, setCurrent] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % images.length)
+  }, [images.length])
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + images.length) % images.length)
+  }, [images.length])
+
+  // Auto-play: advance every 4 seconds, pause on hover
+  useEffect(() => {
+    if (images.length <= 1) return
+    if (isHovered) {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      return
+    }
+    intervalRef.current = setInterval(next, 4000)
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [isHovered, next, images.length])
+
+  if (images.length === 0) return null
+
+  // Single image: just render it without slider chrome
+  if (images.length === 1) {
+    return (
+      <div
+        className="relative rounded-2xl overflow-hidden border-2 border-green-100 shadow-md cursor-pointer"
+        onClick={() => onImageClick(0)}
+      >
+        <Image
+          src={images[0].url}
+          alt={images[0].caption || 'Result Banner'}
+          width={1200}
+          height={500}
+          className="w-full object-cover"
+          style={{ maxHeight: '480px' }}
+        />
+        {images[0].caption && (
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm px-5 py-3">
+            {images[0].caption}
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden border-2 border-green-100 shadow-md select-none"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Slides */}
+      <div className="relative w-full overflow-hidden" style={{ minHeight: '280px' }}>
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              idx === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+            onClick={() => onImageClick(idx)}
+            style={{ cursor: 'pointer' }}
+          >
+            <Image
+              src={img.url}
+              alt={img.caption || `Slide ${idx + 1}`}
+              width={1200}
+              height={500}
+              className="w-full object-cover"
+              style={{ maxHeight: '480px', width: '100%' }}
+              priority={idx === 0}
+            />
+            {/* Caption overlay */}
+            {img.caption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm px-5 py-3">
+                {img.caption}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {/* Invisible spacer image to set container height */}
+        <Image
+          src={images[0].url}
+          alt=""
+          width={1200}
+          height={500}
+          className="w-full invisible"
+          style={{ maxHeight: '480px' }}
+          aria-hidden
+        />
+      </div>
+
+      {/* Left Arrow */}
+      <button
+        onClick={(e) => { e.stopPropagation(); prev() }}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 transition"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={(e) => { e.stopPropagation(); next() }}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 transition"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-3 left-0 right-0 z-20 flex items-center justify-center gap-2">
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={(e) => { e.stopPropagation(); setCurrent(idx) }}
+            className={`rounded-full transition-all duration-300 ${
+              idx === current
+                ? 'bg-white w-6 h-2.5'
+                : 'bg-white/50 hover:bg-white/80 w-2.5 h-2.5'
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Slide counter (top-right) */}
+      <div className="absolute top-3 right-3 z-20 bg-black/40 text-white text-xs font-medium px-2.5 py-1 rounded-full">
+        {current + 1} / {images.length}
+      </div>
+    </div>
+  )
+}
+// ──────────────────────────────────────────────────────────────────────────────
 
 export default function ResultsPage() {
   const locale = useLocale()
@@ -104,7 +253,7 @@ export default function ResultsPage() {
       {/* Results by Year */}
       <div className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-4">Star Achievers</h2>
-        <p className="text-gray-500 text-center mb-12">Students who cracked IIT JEE & NEET</p>
+        <p className="text-gray-500 text-center mb-12">Students who cracked IIT JEE &amp; NEET</p>
 
         {loading ? (
           <div className="text-center py-16">
@@ -133,36 +282,27 @@ export default function ResultsPage() {
                     <span className="text-sm text-gray-400">{yearResults.length} student{yearResults.length !== 1 ? 's' : ''}</span>
                   </div>
 
-                  {/* Banner Images for this year */}
-                  {banner && banner.bannerImages && banner.bannerImages.length > 0 && (
-                    <div className="mb-8">
-                      {banner.title && (
-                        <h3 className="text-lg font-bold text-green-700 mb-3">📢 {banner.title}</h3>
-                      )}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {banner.bannerImages.map((img, idx) => (
-                          <div
-                            key={idx}
-                            className="relative rounded-2xl overflow-hidden border-2 border-green-100 shadow-sm cursor-pointer hover:shadow-lg transition"
-                            onClick={() => setLightbox({ images: banner.bannerImages, index: idx })}
-                          >
-                            <Image
-                              src={img.url}
-                              alt={img.caption || `${year} Result Banner`}
-                              width={800}
-                              height={450}
-                              className="w-full h-auto object-cover"
-                            />
-                            {img.caption && (
-                              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm px-4 py-2">
-                                {img.caption}
-                              </div>
-                            )}
-                          </div>
-                        ))}
+                  {/* Banner Image Slider for this year */}
+                  <div className="mb-8">
+                    {banner && banner.title && (
+                      <h3 className="text-lg font-bold text-green-700 mb-3">📢 {banner.title}</h3>
+                    )}
+                    {banner && banner.bannerImages && banner.bannerImages.length > 0 ? (
+                      <BannerSlider
+                        images={banner.bannerImages}
+                        onImageClick={(idx) => setLightbox({ images: banner.bannerImages, index: idx })}
+                      />
+                    ) : (
+                      <div className="w-full rounded-2xl border-2 border-dashed border-green-200 bg-green-50 flex flex-col items-center justify-center gap-3 text-green-400" style={{ minHeight: '280px' }}>
+                        <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
+                          <rect x="3" y="5" width="18" height="14" rx="2" />
+                          <circle cx="8.5" cy="10.5" r="1.5" />
+                          <path d="M21 15l-5-5L5 19" />
+                        </svg>
+                        <span className="text-sm font-medium">Result photos coming soon</span>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
                   {/* Student Results for this year */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
