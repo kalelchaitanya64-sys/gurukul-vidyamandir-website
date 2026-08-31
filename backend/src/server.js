@@ -27,7 +27,12 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+// Start server if not running on Vercel serverless
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
+
+module.exports = app
+
