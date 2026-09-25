@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: #f59e0b;
+    color: #0f172a;
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(100%);
@@ -10,5 +20,5 @@
 }
 
 .animate-marquee {
-  animation: marquee 15s linear infinite;
-}
+  animation: marquee 18s linear infinite;
+}

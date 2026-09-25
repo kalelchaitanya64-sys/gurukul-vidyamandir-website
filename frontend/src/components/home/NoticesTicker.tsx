@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { X } from 'lucide-react'
+import { X, Megaphone } from 'lucide-react'
 
 const sampleNotices = [
-  'Admissions opens at new branch in pune',
+  'Admissions open for Academic Year 2025-26 (School & Junior College of Science)',
+  'Special IIT JEE & NEET Crash Course Batches starting soon at Gokhali & Pune centers',
 ]
 
 export default function NoticesTicker() {
@@ -15,16 +16,17 @@ export default function NoticesTicker() {
   if (!visible) return null
 
   return (
-    <div className="bg-yellow-50 border-y border-yellow-200 py-2 overflow-hidden relative">
-      <div className="flex items-center gap-4 pr-10">
-        <span className="bg-orange-600 text-white text-xs font-bold px-3 py-1 shrink-0 ml-4">
+    <div className="bg-amber-50/90 border-y border-amber-200/90 py-2.5 overflow-hidden relative shadow-xs">
+      <div className="flex items-center gap-4 pr-12 max-w-7xl mx-auto px-4">
+        <span className="inline-flex items-center gap-1.5 bg-amber-600 text-white text-xs font-black px-3 py-1 rounded-md shrink-0 shadow-xs tracking-wider uppercase">
+          <Megaphone size={12} />
           {t('title')}
         </span>
-        <div className="overflow-hidden whitespace-nowrap">
+        <div className="overflow-hidden whitespace-nowrap flex-1">
           <div className="inline-block animate-marquee">
             {sampleNotices.map((notice, i) => (
-              <span key={i} className="text-sm text-gray-700 mx-8">
-                📢 {notice}
+              <span key={i} className="text-sm font-medium text-slate-800 mx-8">
+                ✨ {notice}
               </span>
             ))}
           </div>
@@ -32,11 +34,11 @@ export default function NoticesTicker() {
       </div>
       <button
         onClick={() => setVisible(false)}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-red-600 transition p-1 rounded-full hover:bg-yellow-100"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-800 transition p-1.5 rounded-full hover:bg-amber-200/50"
         aria-label="Close notices"
       >
-        <X size={16} />
+        <X size={15} />
       </button>
     </div>
   )
-}
+}

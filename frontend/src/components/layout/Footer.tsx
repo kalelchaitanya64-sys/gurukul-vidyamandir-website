@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations, useLocale } from 'next-intl'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin, GraduationCap } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -9,22 +9,27 @@ export default function Footer() {
   const locale = useLocale()
 
   return (
-    <footer className="bg-green-900 text-white pt-12 pb-6">
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* School Info */}
         <div className="md:col-span-1">
-          <h2 className="text-xl font-bold text-yellow-400 mb-3">Gurukul Vidyamandir</h2>
-          <p className="text-green-200 text-sm leading-relaxed mb-4">
-            Gokhali, Maharashtra. Shaping futures through quality education since years.
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-8 h-8 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-black text-sm">
+              <GraduationCap size={18} />
+            </div>
+            <h2 className="text-xl font-black text-white tracking-tight">Gurukul Vidyamandir</h2>
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed mb-5">
+            Gokhali, Maharashtra. Empowering students with foundational discipline and national-level competitive exam coaching.
           </p>
           {/* Social Media Links */}
-          <div className="flex gap-3 mt-3">
+          <div className="flex gap-2.5 mt-4">
             <a
               href="https://t.me/GurukulGokhaliTelegramChannel"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full transition"
+              className="bg-slate-900 hover:bg-sky-600 text-slate-300 hover:text-white p-2.5 rounded-xl border border-slate-800 transition"
               title="Telegram"
             >
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +40,7 @@ export default function Footer() {
               href="https://instagram.com/gurukul_gokhali"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-pink-500 hover:bg-pink-600 text-white p-2 rounded-full transition"
+              className="bg-slate-900 hover:bg-pink-600 text-slate-300 hover:text-white p-2.5 rounded-xl border border-slate-800 transition"
               title="Instagram"
             >
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -46,7 +51,7 @@ export default function Footer() {
               href="https://facebook.com/GurukulVidyamandirGokhali"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-full transition"
+              className="bg-slate-900 hover:bg-blue-600 text-slate-300 hover:text-white p-2.5 rounded-xl border border-slate-800 transition"
               title="Facebook"
             >
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -57,7 +62,7 @@ export default function Footer() {
               href="https://linkedin.com/in/gurukul-gokhali-3316471a6"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition"
+              className="bg-slate-900 hover:bg-blue-500 text-slate-300 hover:text-white p-2.5 rounded-xl border border-slate-800 transition"
               title="LinkedIn"
             >
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -69,43 +74,43 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-yellow-400">Quick Links</h3>
-          <ul className="space-y-2 text-sm text-green-200">
-            <li><Link href={`/${locale}/coaching/jee`} className="hover:text-yellow-400 transition">IIT JEE Coaching</Link></li>
-            <li><Link href={`/${locale}/coaching/neet`} className="hover:text-yellow-400 transition">NEET Coaching</Link></li>
-            <li><Link href={`/${locale}/coaching/foundation`} className="hover:text-yellow-400 transition">Foundation Classes</Link></li>
-            <li><Link href={`/${locale}/results`} className="hover:text-yellow-400 transition">Results</Link></li>
-            <li><Link href={`/${locale}/faculty`} className="hover:text-yellow-400 transition">Faculty</Link></li>
-            <li><Link href={`/${locale}/admission`} className="hover:text-yellow-400 transition">Admission</Link></li>
+          <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-amber-400">Programs &amp; Academics</h3>
+          <ul className="space-y-2.5 text-sm text-slate-400">
+            <li><Link href={`/${locale}/coaching#jee`} className="hover:text-amber-300 transition">IIT JEE Advanced Coaching</Link></li>
+            <li><Link href={`/${locale}/coaching#neet`} className="hover:text-amber-300 transition">NEET UG Medical Coaching</Link></li>
+            <li><Link href={`/${locale}/coaching#foundation`} className="hover:text-amber-300 transition">Foundation Program (Std 6–10)</Link></li>
+            <li><Link href={`/${locale}/school`} className="hover:text-amber-300 transition">School Facilities</Link></li>
+            <li><Link href={`/${locale}/results`} className="hover:text-amber-300 transition">Results &amp; Achievers</Link></li>
+            <li><Link href={`/${locale}/admission`} className="hover:text-amber-300 transition">Online Admission 2025-26</Link></li>
           </ul>
         </div>
 
         {/* Faculty Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-yellow-400">Our Faculty</h3>
-          <ul className="space-y-2 text-sm text-green-200">
+          <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-amber-400">Expert Faculty</h3>
+          <ul className="space-y-2.5 text-sm text-slate-400">
             <li>
-              <a href="https://www.linkedin.com/in/pravin-negi-479a6b272/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+              <a href="https://www.linkedin.com/in/pravin-negi-479a6b272/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">
                 Pravin Negi Sir
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/munna-kumar-087054a7/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+              <a href="https://www.linkedin.com/in/munna-kumar-087054a7/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">
                 Munna Sir
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/akmishra78" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+              <a href="https://www.instagram.com/akmishra78" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">
                 Atulya Mishra Sir
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/vishwas-hulge-b8a108357/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+              <a href="https://www.linkedin.com/in/vishwas-hulge-b8a108357/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">
                 Vishwas Hulge Sir
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/bharat-harnaval-295a67356/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+              <a href="https://www.linkedin.com/in/bharat-harnaval-295a67356/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">
                 Bharat Harnawal Sir
               </a>
             </li>
@@ -114,23 +119,23 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-yellow-400">{t('contact.title')}</h3>
-          <ul className="space-y-3 text-sm text-green-200">
-            <li className="flex items-start gap-2">
-              <MapPin size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-              <a href="https://maps.app.goo.gl/kZ6Jr5TytcuzP57b7" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
+          <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-amber-400">{t('contact.title')}</h3>
+          <ul className="space-y-3 text-sm text-slate-400">
+            <li className="flex items-start gap-3">
+              <MapPin size={18} className="text-amber-400 mt-0.5 shrink-0" />
+              <a href="https://maps.app.goo.gl/kZ6Jr5TytcuzP57b7" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition leading-snug">
                 Gurukul Vidyamandir, Gokhali, Maharashtra
               </a>
             </li>
-            <li className="flex items-center gap-2">
-              <Phone size={16} className="text-yellow-400 shrink-0" />
-              <a href="tel:+919673761468" className="hover:text-yellow-400 transition">
-                +919673761468
+            <li className="flex items-center gap-3">
+              <Phone size={18} className="text-amber-400 shrink-0" />
+              <a href="tel:+919673761468" className="hover:text-amber-300 transition font-medium">
+                +91 96737 61468
               </a>
             </li>
-            <li className="flex items-center gap-2">
-              <Mail size={16} className="text-yellow-400 shrink-0" />
-              <a href="mailto:gurukulvmgokhali@gmail.com" className="hover:text-yellow-400 transition">
+            <li className="flex items-center gap-3">
+              <Mail size={18} className="text-amber-400 shrink-0" />
+              <a href="mailto:gurukulvmgokhali@gmail.com" className="hover:text-amber-300 transition font-medium">
                 gurukulvmgokhali@gmail.com
               </a>
             </li>
@@ -139,10 +144,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-green-700 text-center text-xs text-green-400">
-        <p>© {new Date().getFullYear()} Gurukul Vidyamandir, Gokhali. {t('footer.rights')}</p>
-        <p className="mt-1">{t('footer.made_with')}</p>
+      <div className="max-w-6xl mx-auto px-4 md:px-8 mt-12 pt-6 border-t border-slate-900 text-center text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p>© {new Date().getFullYear()} Gurukul Vidyamandir, Gokhali. All Rights Reserved.</p>
+        <p className="text-slate-400">Dedicated to Quality Education &amp; Rural Empowerment</p>
       </div>
     </footer>
   )
-}
+}
